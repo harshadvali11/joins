@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>self joins</h1>
+        
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Join Example</title>
+</head>
+<body>
+    <h1>Self Join Example - Employees with Managers</h1>
+    <table>
+        <tr>
+            <th>Employee Number</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Manager</th>
+            <th>Hire Date</th>
+            <th>Salary</th>
+        </tr>
+        {% for employee in EANDM %}
+        <tr>
+            <td>{{ employee.EMPNO }}</td>
+            <td>{{ employee.ENAME }}</td>
+            <td>{{ employee.JOB }}</td>
+            <td> {% if employee.MGR.ENAME %}
+                {{ employee.MGR.ENAME}}
+                {% else %} 
+                N/A
+                {% endif %}</td>
+
+            <td>{{ employee.HIREDATE }}</td>
+            <td>{{ employee.SAL }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+        <table border="3px">
+            <tr>
+                <th>ENAME</th>
+                <th>EMPNO</th>
+                <th>MangerName</th>
+                <th>MGR</th>
+                <th>HIREDATE</th>
+                <th>SAL</th>
+                <th>COMM</th>
+                <th>DEPTNO</th>
+                <th>DNAME</th>
+                <th>DLOC</th>
+            </tr>
+            {% for to in QLTO %}
+                <tr>
+                    <td>{{to.ENAME}}</td>
+                    
+                    <td>{{to.EMPNO}}</td>
+                    <td>{{to.JOB}}</td>
+                    <td>{{to.MGR}}</td>
+                    <td>{{to.HIREDATE}}</td>
+                    <td>{{to.SAL}}</td>
+                    <td>{{to.COMM}}</td>
+                    <td>{{to.DEPTNO.DEPTNO}}</td>
+                    <td>{{to.DEPTNO.DNAME}}</td>
+                    <td>{{to.DEPTNO.LOC}}</td>
+
+                </tr>
+            {% endfor %}
+           
+        </table>
+    </center>
+</body>
+</html>
